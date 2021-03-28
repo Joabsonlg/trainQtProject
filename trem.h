@@ -16,7 +16,7 @@ public:
     Trem(int,int,int);  //construtor
     void run();         //função a ser executada pela thread
     void setVelocidade(int x); //função que altera a velocidade
-
+    int getVelocidade(); //função que retorna o valor da velocidade
 
 //Cria um sinal
 signals:

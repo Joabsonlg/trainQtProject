@@ -63,11 +63,16 @@ MainWindow::~MainWindow()
  */
 void MainWindow::on_pushButton_clicked()
 {
-    trem1->start();
-    trem2->start();
-    trem3->start();
-    trem4->start();
-    trem5->start();
+    if(trem1->getVelocidade()<200)
+        trem1->start();
+    if(trem2->getVelocidade()<200)
+        trem2->start();
+    if(trem3->getVelocidade()<200)
+        trem3->start();
+    if(trem4->getVelocidade()<200)
+        trem4->start();
+    if(trem5->getVelocidade()<200)
+        trem5->start();
 }
 
 /*
@@ -75,11 +80,16 @@ void MainWindow::on_pushButton_clicked()
  */
 void MainWindow::on_pushButton_2_clicked()
 {
-    trem1->terminate();
-    trem2->terminate();
-    trem3->terminate();
-    trem4->terminate();
-    trem5->terminate();
+    if(trem1->isRunning())
+        trem1->terminate();
+    if(trem2->isRunning())
+        trem2->terminate();
+    if(trem3->isRunning())
+        trem3->terminate();
+    if(trem4->isRunning())
+        trem4->terminate();
+    if(trem5->isRunning())
+        trem5->terminate();
 }
 
 void MainWindow::on_controle_t1_valueChanged(int value)
@@ -87,6 +97,10 @@ void MainWindow::on_controle_t1_valueChanged(int value)
     int velocidade = value + 2*(100-value);
     printf("Velocidade: %d",velocidade);
     trem1->setVelocidade(velocidade);
+
+    if(velocidade == 200){
+        trem1->terminate();
+    }
 }
 
 void MainWindow::on_controle_t2_valueChanged(int value)
@@ -94,6 +108,10 @@ void MainWindow::on_controle_t2_valueChanged(int value)
     int velocidade = value + 2*(100-value);
     printf("Velocidade: %d",velocidade);
     trem2->setVelocidade(velocidade);
+
+    if(velocidade == 200){
+        trem2->terminate();
+    }
 }
 
 void MainWindow::on_controle_t3_valueChanged(int value)
@@ -101,6 +119,10 @@ void MainWindow::on_controle_t3_valueChanged(int value)
     int velocidade = value + 2*(100-value);
     printf("Velocidade: %d",velocidade);
     trem3->setVelocidade(velocidade);
+
+    if(velocidade == 200){
+        trem3->terminate();
+    }
 }
 
 void MainWindow::on_controle_t4_valueChanged(int value)
@@ -108,6 +130,10 @@ void MainWindow::on_controle_t4_valueChanged(int value)
     int velocidade = value + 2*(100-value);
     printf("Velocidade: %d",velocidade);
     trem4->setVelocidade(velocidade);
+
+    if(velocidade == 200){
+        trem4->terminate();
+    }
 }
 
 void MainWindow::on_controle_t5_valueChanged(int value)
@@ -115,4 +141,8 @@ void MainWindow::on_controle_t5_valueChanged(int value)
     int velocidade = value + 2*(100-value);
     printf("Velocidade: %d",velocidade);
     trem5->setVelocidade(velocidade);
+
+    if(velocidade == 200){
+        trem5->terminate();
+    }
 }

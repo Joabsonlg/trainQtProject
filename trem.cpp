@@ -14,6 +14,11 @@ void Trem::setVelocidade(int x) {
     this->velocidade = x;
 }
 
+//Função que retorna o valor da velocidade
+int Trem::getVelocidade() {
+    return this->velocidade;
+}
+
 //Função a ser executada após executar trem->START
 void Trem::run(){
     while(true){
