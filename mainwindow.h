@@ -27,7 +27,13 @@ private slots:
 
     void on_controle_t1_valueChanged(int value);
 
-    void on_controle_t1_actionTriggered(int action);
+    void on_controle_t2_valueChanged(int value);
+
+    void on_controle_t3_valueChanged(int value);
+
+    void on_controle_t4_valueChanged(int value);
+
+    void on_controle_t5_valueChanged(int value);
 
 private:
     Ui::MainWindow *ui;
