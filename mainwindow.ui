@@ -20,8 +20,8 @@
    <widget class="QLabel" name="label_trem1">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>90</y>
+      <x>190</x>
+      <y>150</y>
       <width>21</width>
       <height>17</height>
      </rect>
@@ -175,7 +175,7 @@
     <property name="geometry">
      <rect>
       <x>460</x>
-      <y>30</y>
+      <y>150</y>
       <width>21</width>
       <height>17</height>
      </rect>
@@ -318,8 +318,8 @@
    <widget class="QLabel" name="label_trem3">
     <property name="geometry">
      <rect>
-      <x>870</x>
-      <y>90</y>
+      <x>730</x>
+      <y>150</y>
       <width>21</width>
       <height>17</height>
      </rect>
@@ -389,6 +389,9 @@
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
+    </property>
+    <property name="invertedControls">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QSlider" name="controle_t3">
@@ -583,7 +586,7 @@
      <x>0</x>
      <y>0</y>
      <width>986</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
