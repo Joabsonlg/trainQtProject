@@ -19,13 +19,7 @@ Trem::Trem(int ID, int x, int y){
 
 //Função que altera a velocidade
 void Trem::setVelocidade(int x) {
-    if (x == 200) {
-        this->velocidade = 200;
-    } else if (x > 0) {
-        this->velocidade = x + 2*(100-x);
-    } else {
-        this->velocidade = 0;
-    }
+    this->velocidade = x + 2*(100-x);
 }
 
 //Função que retorna o valor da velocidade
@@ -36,7 +30,7 @@ int Trem::getVelocidade() {
 //Função a ser executada após executar trem->START
 void Trem::run(){
     while(true){
-        if (velocidade != 0) {
+        if (velocidade != 200) {
             switch(ID){
             case 1:     //Trem 1
                 if (y == 30 && x == 330) areaCritica1.lock();
@@ -67,7 +61,7 @@ void Trem::run(){
                 } else if (y == 150 && x == 330) {
                     areaCritica4.unlock();
                     areaCritica1.lock();
-                } else if (y == 30 && x == 150) areaCritica1.unlock();
+                } else if (y == 30 && x == 330) areaCritica1.unlock();
 
                 if (y == 30 && x <600)
                     x+=10;
@@ -84,7 +78,7 @@ void Trem::run(){
                 else if (y == 150 && x == 600) {
                     areaCritica6.unlock();
                     areaCritica2.lock();
-                } else if (y == 30 && x == 600) areaCritica1.unlock();
+                } else if (y == 30 && x == 600) areaCritica2.unlock();
 
                 if (y == 30 && x <870)
                     x+=10;
@@ -97,17 +91,14 @@ void Trem::run(){
                 emit updateGUI(ID, x,y);    //Emite um sinal
                 break;
             case 4: //Trem 4
-//                if (y == 150 && x == 190) areaCritica3.lock();
-//                else if (y == 150 && x == 600) {
-//                    areaCritica2.unlock();
-//                    areaCritica5.lock();
-//                } else if (y == 150 && x == 460) {
-//                    areaCritica5.unlock();
-//                    areaCritica4.lock();
-//                } else if (y == 150 && x == 330) {
-//                    areaCritica4.unlock();
-//                    areaCritica1.lock();
-//                } else if (y == 30 && x == 150) areaCritica1.unlock();
+                if (y == 150 && x == 190) areaCritica3.lock();
+                else if (y == 150 && x == 330) {
+                    areaCritica3.unlock();
+                    areaCritica4.lock();
+                } else if (y == 150 && x == 460) {
+                    areaCritica4.unlock();
+                    areaCritica7.lock();
+                } else if (y == 280 && x == 460) areaCritica7.unlock();
 
                 if (y == 150 && x <460)
                     x+=10;
@@ -120,6 +111,15 @@ void Trem::run(){
                 emit updateGUI(ID, x,y);    //Emite um sinal
                 break;
             case 5: //Trem 5
+                if (y == 280 && x == 460) areaCritica7.lock();
+                else if (y == 150 && x == 460) {
+                    areaCritica7.unlock();
+                    areaCritica5.lock();
+                } else if (y == 150 && x == 600) {
+                    areaCritica5.unlock();
+                    areaCritica6.lock();
+                } else if (y == 150 && x == 730) areaCritica6.unlock();
+
                 if (y == 150 && x <730)
                     x+=10;
                 else if (x == 730 && y < 280)
