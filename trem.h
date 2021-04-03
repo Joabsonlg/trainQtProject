@@ -2,6 +2,7 @@
 #define TREM_H
 
 #include <QThread>
+#include <QSemaphore>
 
 /*
  * Classe Trem herda QThread
