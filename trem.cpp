@@ -13,6 +13,7 @@ QSemaphore cruzamento_T2(2);
 QSemaphore cruzamento_T3(2);
 QSemaphore cruzamento_X1(3);
 QSemaphore cruzamento_X2(3);
+QSemaphore cruzamento_Y(4);
 
 //Construtor
 Trem::Trem(int ID, int x, int y){
@@ -39,6 +40,7 @@ void Trem::run(){
             switch(ID){
             case 1:     //Trem 1
                 if (y == 30 && x == 310) {
+                    cruzamento_Y.acquire(1);
                     cruzamento_X1.acquire(1);
                     cruzamento_T1.acquire(1);
                     areaCritica1.lock();
@@ -49,6 +51,7 @@ void Trem::run(){
                     areaCritica3.unlock();
                     cruzamento_T1.release(1);
                     cruzamento_X1.release(1);
+                    cruzamento_Y.release(1);
                 }
 
                 if (y == 30 && x < 330)
@@ -63,6 +66,7 @@ void Trem::run(){
                 break;
             case 2: //Trem 2
                 if (y == 30 && x == 580) {
+                    cruzamento_Y.acquire(1);
                     cruzamento_X2.acquire(1);
                     cruzamento_T3.acquire(1);
                     areaCritica2.lock();
@@ -91,6 +95,7 @@ void Trem::run(){
                     areaCritica1.unlock();
                     cruzamento_T1.release(1);
                     cruzamento_X1.release(1);
+                    cruzamento_Y.release(1);
                 }
 
                 if (y == 30 && x <600)
@@ -105,6 +110,7 @@ void Trem::run(){
                 break;
             case 3: //Trem 3
                 if (y == 150 && x == 750) {
+                    cruzamento_Y.acquire(1);
                     cruzamento_X2.acquire(1);
                     cruzamento_T3.acquire(1);
                     areaCritica6.lock();
@@ -115,6 +121,7 @@ void Trem::run(){
                     areaCritica2.unlock();
                     cruzamento_T3.release(1);
                     cruzamento_X2.release(1);
+                    cruzamento_Y.release(1);
                 }
 
                 if (y == 30 && x <870)
@@ -129,6 +136,7 @@ void Trem::run(){
                 break;
             case 4: //Trem 4
                 if (y == 170 && x == 190) {
+                    cruzamento_Y.acquire(1);
                     cruzamento_X1.acquire(1);
                     cruzamento_T1.acquire(1);
                     areaCritica3.lock();
@@ -149,6 +157,7 @@ void Trem::run(){
                     cruzamento_T2.release(1);
                     cruzamento_X1.release(1);
                     cruzamento_X2.release(1);
+                    cruzamento_Y.release(1);
                 }
 
                 if (y == 150 && x <460)
@@ -163,6 +172,7 @@ void Trem::run(){
                 break;
             case 5: //Trem 5
                 if (y == 280 && x == 480) {
+                    cruzamento_Y.acquire(1);
                     cruzamento_X2.acquire(1);
                     cruzamento_X1.acquire(1);
                     cruzamento_T2.acquire(1);
@@ -183,6 +193,7 @@ void Trem::run(){
                     areaCritica6.unlock();
                     cruzamento_T3.release(1);
                     cruzamento_X2.release(1);
+                    cruzamento_Y.release(1);
                 }
 
                 if (y == 150 && x <730)
